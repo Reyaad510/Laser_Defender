@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    // config params
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
+    [SerializeField] GameObject laserPrefab;
+    [SerializeField] float projectileSpeed = 10f;
 
     float xMin;
     float xMax;
@@ -18,6 +20,39 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetUpMoveBoundaries();
+    }
+
+    // Update is called once per frame
+    // Movement done here because want to check movement every frame
+    void Update()
+    {
+        Move();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            // Quaternion.identity just saying use whatever rotation already is
+           GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+
+        }
+    }
+
+    private void Move() {
+        // can use var to know it will be a float
+        // Look below for Time.deltaTime explanation
+        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+
+        // Mathf.Clamp so player cant go off screen top, bottom, left, right
+        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
+        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+        transform.position = new Vector2(newXPos, newYPos);
+       
+
     }
 
     private void SetUpMoveBoundaries()
@@ -35,28 +70,6 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    // Movement done here because want to check movement every frame
-    void Update()
-    {
-        Move();
-    }
-
-
-    private void Move() {
-        // can use var to know it will be a float
-        // Look below for Time.deltaTime explanation
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-
-        // Mathf.Clamp so player cant go off screen top, bottom, left, right
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
-       
-
-    }
-
 
 }
 
@@ -65,3 +78,6 @@ public class Player : MonoBehaviour
 // Game will behave same on fast and slow computers
 // Says "how long did it take for that frame take to execute"
  // something multiplied by Time.deltaTime will make it frame independent
+
+
+ // RigidBody2d for laser change to kinematic so gravity doeosnt effect it
