@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 1f;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float projectileFiringPeriod = 0.05f;
+
+    // Coroutine
+    Coroutine firingCoroutine;
 
     float xMin;
     float xMax;
@@ -34,12 +38,28 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            // Quaternion.identity just saying use whatever rotation already is
-           GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
+            firingCoroutine = StartCoroutine(FireContinously());
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            //StopAllCoroutines();
+            StopCoroutine(firingCoroutine);
         }
     }
+
+
+    // Coroutine 
+    IEnumerator FireContinously()
+    {
+        while (true)
+        {
+            // Quaternion.identity just saying use whatever rotation already is
+            GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            yield return new WaitForSeconds(projectileFiringPeriod);
+        }
+    }
+
 
     private void Move() {
         // can use var to know it will be a float
@@ -81,3 +101,20 @@ public class Player : MonoBehaviour
 
 
  // RigidBody2d for laser change to kinematic so gravity doeosnt effect it
+
+// Coroutine is a method which can suspend(yield) its execution until the yield instructions you gave it are met
+// Dont put Coroutine in Update()
+// Ex when player gets to zero health, start the KillPlayer coroutine -> trigger death animation, Yield(wait) for 3 second -> restart level
+// If yield wasnt there the death animation would happen same time as restart level so wouldnt see it
+
+/* StartCoroutine(NameOfCoroutine())
+ * 
+  IEnumerator NameOfCoroutine(){
+  Things to do,
+  yield return SomeCondition
+  things to do
+    }
+
+WaitForSeconds(3) wait for how many seconds you put
+
+*/
