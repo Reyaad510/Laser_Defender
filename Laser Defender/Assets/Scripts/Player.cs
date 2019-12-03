@@ -118,3 +118,7 @@ public class Player : MonoBehaviour
 WaitForSeconds(3) wait for how many seconds you put
 
 */
+
+
+    // List is dynamically sized while array is fixed in size
+    // List<Enemy> enemies = {1, 3, 5, 7, 9} first number starts as 0
