@@ -11,6 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 1f;
     [SerializeField] int health = 200;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip  playerDieSFX;
+    [SerializeField] [Range(0, 1)] float playerDieVolumeSFX = 0.7f;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.001f;
+
+
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float projectileSpeed = 10f;
@@ -54,8 +61,15 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerDieSFX, Camera.main.transform.position, playerDieVolumeSFX);
     }
 
 
@@ -81,6 +95,7 @@ public class Player : MonoBehaviour
             // Quaternion.identity just saying use whatever rotation already is
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }

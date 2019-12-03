@@ -115,6 +115,11 @@ MonoBehaviour:
   projectileSpeed: 10
   explosionVFX: {fileID: 116591389956859137, guid: 9daafee4095497f43bd51afa73014a5e,
     type: 3}
+  durationOfExplosionVFX: 1
+  enemyDieSFX: {fileID: 8300000, guid: e2e841fb54a8b764abf01222e1562584, type: 3}
+  enemyDieVolumeSFX: 0.3
+  shootSound: {fileID: 8300000, guid: b40468c748488a94c9cdd814fec2569c, type: 3}
+  shootSoundVolume: 0.1
 --- !u!58 &58408477297493714
 CircleCollider2D:
   m_ObjectHideFlags: 0
