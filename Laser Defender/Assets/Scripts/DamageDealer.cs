@@ -18,3 +18,6 @@ public class DamageDealer : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+
+// To fix enemy projectile killing enemies, etc. Go to setting, project settings and physics 2d. Go to layers and make enemy projectile, player projectile, enemy, and player. Then for the prefabs assign them accordingly. Then in physics 2d settings look how they are checked or not checked

@@ -43,12 +43,15 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent <DamageDealer>();
+        if(!damageDealer) { return; } // used in case a damageDealer then return nothing and dont continue down the chain
         ProcessHit(damageDealer);
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
         health -= damageDealer.GetDamage();
+        // line 53 will destroy the laser so its not building up on side in unity
+        damageDealer.Hit();
         if(health <= 0)
         {
             Destroy(gameObject);
