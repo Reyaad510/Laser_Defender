@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
-    [SerializeField] WaveConfig waveConfig;
+     WaveConfig waveConfig;
     // type transform because looking at position of enemies
     List<Transform> waypoints;
-    [SerializeField] float moveSpeed = 2f;
     int waypointIndex = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +24,19 @@ public class EnemyPathing : MonoBehaviour
         Move();
     }
 
+    // waveConfig in this isnt equal to the one above
+    public void SetWaveConfig(WaveConfig waveConfig)
+    {
+        // this.waveConfig is referring to the this Class Config. = waveConfig is equal to whatever is passed in
+        this.waveConfig = waveConfig;
+    }
+
     private void Move()
     {       // .Count used for lists(array uses Length)
         if (waypointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
-            var movementThisFrame = moveSpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.MoveSpeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
             if (transform.position == targetPosition)
