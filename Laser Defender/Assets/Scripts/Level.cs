@@ -20,6 +20,7 @@ public void LoadStartMenu()
 public void LoadGame()
     {
         SceneManager.LoadScene("Game"); // Grabbing Scene named called "Game". Not best way if u change name later on
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
 public void LoadGameOver()

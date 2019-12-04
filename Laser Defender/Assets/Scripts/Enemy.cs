@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Enemy")]
     [SerializeField] float health = 100;
+    [SerializeField] int scoreValue = 150;
 
     [Header("Enemy Shooting")]
     [SerializeField] float shotCounter; // for debug purposes
@@ -75,6 +76,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         EnemyDieSFX();
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
