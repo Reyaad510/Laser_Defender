@@ -233,7 +233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000005722, y: 482}
+  m_AnchoredPosition: {x: -0, y: 482}
   m_SizeDelta: {x: 1050.8, y: 298.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649873134
@@ -390,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.0988, y: -355.3}
+  m_AnchoredPosition: {x: -8.098755, y: -355.30005}
   m_SizeDelta: {x: -17.5, y: -1763.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756129032
@@ -692,6 +692,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 4041994705176883828, guid: 19ac6fadb79b1e14d8a4a52991fc2f95,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 652018575, guid: 19ac6fadb79b1e14d8a4a52991fc2f95, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
@@ -767,6 +772,21 @@ PrefabInstance:
     - target: {fileID: 8571322359605903320, guid: 75bf129ac9e140843b964db13bc884f9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322359605903143, guid: 75bf129ac9e140843b964db13bc884f9,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322359605903143, guid: 75bf129ac9e140843b964db13bc884f9,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322359605903143, guid: 75bf129ac9e140843b964db13bc884f9,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1148,7 +1168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.6, y: -132.8}
+  m_AnchoredPosition: {x: -3.5999756, y: -132.79999}
   m_SizeDelta: {x: -9.7, y: -1652.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093744817
@@ -1442,6 +1462,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966581346369835229, guid: 358dc3e258587ba45a767da442284181,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966581346369835229, guid: 358dc3e258587ba45a767da442284181,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 358dc3e258587ba45a767da442284181, type: 3}

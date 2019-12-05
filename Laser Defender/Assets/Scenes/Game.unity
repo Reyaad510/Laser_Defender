@@ -990,6 +990,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4041994705176883828, guid: 19ac6fadb79b1e14d8a4a52991fc2f95,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ac6fadb79b1e14d8a4a52991fc2f95, type: 3}
 --- !u!224 &4041994704625283919 stripped
@@ -1213,6 +1218,21 @@ PrefabInstance:
     - target: {fileID: 8571322359605903320, guid: 75bf129ac9e140843b964db13bc884f9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322359605903143, guid: 75bf129ac9e140843b964db13bc884f9,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322359605903143, guid: 75bf129ac9e140843b964db13bc884f9,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322359605903143, guid: 75bf129ac9e140843b964db13bc884f9,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
